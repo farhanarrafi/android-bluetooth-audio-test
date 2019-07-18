@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/switch_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+        android:orientation="horizontal">
+        <Switch
+            android:id="@+id/switch_bluetooth"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Bluetooth switch" />
+
+        <Switch
+            android:id="@+id/switch_bluetooth_sco"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="SCO switch"/>
+
+        <Switch
+            android:id="@+id/switch_bluetooth_a2dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="A2DP switch"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/audioManager_mode_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch_layout"
+        android:weightSum="2"
+        android:orientation="horizontal">
+        <RadioGroup
+            android:id="@+id/radioGroup_audioManager_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Audio hardware modes"/>
+            <RadioButton
+                android:id="@+id/rb_audioManager_mode_current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onAudioManagerRadioClick"
+                android:text="CURRENT"/>
+            <RadioButton
+                android:id="@+id/rb_audioManager_mode_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onAudioManagerRadioClick"
+                android:text="NORMAL"/>
+            <RadioButton
+                android:id="@+id/rb_audioManager_mode_ringtone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onAudioManagerRadioClick"
+                android:text="RINGTONE"/>
+            <RadioButton
+                android:id="@+id/rb_audioManager_mode_inCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onAudioManagerRadioClick"
+                android:text="IN CALL"/>
+            <RadioButton
+                android:id="@+id/rb_audioManager_mode_communication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onAudioManagerRadioClick"
+                android:text="COMMUNICATION"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/audio_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/audioManager_mode_layout"
+        android:textSize="20dp"
+        android:text="00.00"/>
+
+    <Button
+        android:id="@+id/button_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/audio_duration"
+        android:text="Start REC"/>
+
+    <Button
+        android:id="@+id/button_record_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/button_record"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/audio_duration"
+        android:text="Stop REC"/>
+
+    <Button
+        android:id="@+id/button_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_record"
+        android:text="Play"/>
+
+    <Button
+        android:id="@+id/button_play_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/button_play"
+        android:layout_below="@+id/button_record"
+        android:text="Stop Playing"/>
+</RelativeLayout>
