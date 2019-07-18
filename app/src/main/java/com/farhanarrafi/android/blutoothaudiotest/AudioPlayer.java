@@ -66,9 +66,10 @@ public class AudioPlayer extends AsyncTask<Void,Integer,Void> {
             try {
                 in = context.openFileInput(filename);
                 bis = new BufferedInputStream(in);
-                int read;
-                while (!isCancelled() && (read = bis.read(buffer, 0, buffer.length)) > 0) {
-                    mAudioTrack.write(buffer, 0, read);
+                int readBytes;
+                while (!isCancelled() && (readBytes = bis.read(buffer, 0, buffer.length)) > 0) {
+                    mAudioTrack.write(buffer, 0, readBytes);
+                    publishProgress(readBytes);
                 }
             } catch (IOException e) {
                 Log.e(TAG, "Failed to read the sound file into a byte array", e);

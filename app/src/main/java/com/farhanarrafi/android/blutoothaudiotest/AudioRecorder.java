@@ -69,6 +69,7 @@ public class AudioRecorder extends AsyncTask<Void, Integer, Boolean> {
                 while (!isCancelled()) {
                     int readBytes = record.read(buffer, 0, buffer.length);
                     bufferedOutputStream.write(buffer, 0, readBytes);
+                    publishProgress(readBytes);
                 }
             } catch (IOException | NullPointerException | IndexOutOfBoundsException ex) {
                 Log.e(TAG, "doInBackground: " + ex.getMessage());
